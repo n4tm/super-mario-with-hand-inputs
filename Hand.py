@@ -22,7 +22,7 @@ PINKY_MCP = 17
 PINKY_PIP = 18
 PINKY_DIP = PINKY = 19
 PINKY_TIP = 20
-THUMB_THRESHOLD = 80
+THUMB_THRESHOLD = 75
 
 class Hand:
   def __init__(self, side):
@@ -115,5 +115,8 @@ class RightHand(Hand):
       press(jump_mode)
     else:
       release(jump_mode)
-      
-    # TODO: read special buttons input
+    
+    if self.is_thumbs_up:
+      press('a')
+    else:
+      release('a')
